@@ -10,9 +10,10 @@ function main(): void {
   const wordCountString: string = question(
     `This string contains ${totalWords} words.`
   );
-  const letterDupesString: string = question("Letter appears n times:\n");
+  const lettersObj = letterCount(wordInput);
+  const letterCountString: string = question(`Letter Object: ${lettersObj}.`);
 
-  console.log(charCountString, wordCountString);
+  console.log(charCountString, wordCountString, letterCountString);
 }
 
 function characterCount(str: string): number {
@@ -34,6 +35,22 @@ function wordCount(str: string): number {
     }
   }
   return count;
+}
+
+function letterCount(str: string) {
+  let letterCountObj = {};
+
+  for (let i = 0; i < str.length; i++) {
+    const character = str[i];
+    const space = " ";
+    if (str[i] === space) {
+      continue;
+    }
+    if (!letterCountObj[character]) {
+      letterCountObj[character] = 1;
+    } else letterCountObj[character] += 1;
+  }
+  return letterCountObj;
 }
 
 main();

@@ -7,8 +7,9 @@ function main() {
     var charCountString = readline_sync_1.question("This string contains " + charCount + " characters.");
     var totalWords = wordCount(wordInput);
     var wordCountString = readline_sync_1.question("This string contains " + totalWords + " words.");
-    var letterDupesString = readline_sync_1.question("Letter appears n times:\n");
-    console.log(charCountString, wordCountString);
+    var lettersObj = letterCount(wordInput);
+    var letterCountString = readline_sync_1.question("Letter Object: " + lettersObj + ".");
+    console.log(charCountString, wordCountString, letterCountString);
 }
 function characterCount(str) {
     var count = 0;
@@ -26,5 +27,21 @@ function wordCount(str) {
         }
     }
     return count;
+}
+function letterCount(str) {
+    var letterCountObj = {};
+    for (var i = 0; i < str.length; i++) {
+        var character = str[i];
+        var space = " ";
+        if (str[i] === space) {
+            continue;
+        }
+        if (!letterCountObj[character]) {
+            letterCountObj[character] = 1;
+        }
+        else
+            letterCountObj[character] += 1;
+    }
+    return letterCountObj;
 }
 main();
