@@ -1,0 +1,20 @@
+{
+  "name": "ts-string-analysis",
+  "version": "1.0.0",
+  "description": "Write a typescript program that will get a string as parameter and will display: Count the number of character Count the number of words Count the number of each letter that is containing in this string",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cathjime/TS-String-Analysis.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cathjime/TS-String-Analysis/issues"
+  },
+  "homepage": "https://github.com/cathjime/TS-String-Analysis#readme"
+}
