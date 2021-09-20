@@ -8,7 +8,7 @@ function main() {
     var totalWords = wordCount(wordInput);
     var wordCountString = readline_sync_1.question("This string contains " + totalWords + " words.");
     var lettersObj = letterCount(wordInput);
-    var letterCountString = readline_sync_1.question("Letter Object: " + lettersObj + ".");
+    var letterCountString = readline_sync_1.question("Letter Count: " + lettersObj + ".");
     console.log(charCountString, wordCountString, letterCountString);
 }
 function characterCount(str) {
@@ -32,8 +32,7 @@ function letterCount(str) {
     var letterCountObj = {};
     for (var i = 0; i < str.length; i++) {
         var character = str[i];
-        var space = " ";
-        if (str[i] === space) {
+        if (str[i] === " ") {
             continue;
         }
         if (!letterCountObj[character]) {
@@ -42,6 +41,6 @@ function letterCount(str) {
         else
             letterCountObj[character] += 1;
     }
-    return letterCountObj;
+    return JSON.stringify(letterCountObj);
 }
 main();

@@ -11,7 +11,7 @@ function main(): void {
     `This string contains ${totalWords} words.`
   );
   const lettersObj = letterCount(wordInput);
-  const letterCountString: string = question(`Letter Object: ${lettersObj}.`);
+  const letterCountString: string = question(`Letter Count: ${lettersObj}.`);
 
   console.log(charCountString, wordCountString, letterCountString);
 }
@@ -42,15 +42,15 @@ function letterCount(str: string) {
 
   for (let i = 0; i < str.length; i++) {
     const character = str[i];
-    const space = " ";
-    if (str[i] === space) {
+
+    if (str[i] === " ") {
       continue;
     }
     if (!letterCountObj[character]) {
       letterCountObj[character] = 1;
     } else letterCountObj[character] += 1;
   }
-  return letterCountObj;
+  return JSON.stringify(letterCountObj);
 }
 
 main();
