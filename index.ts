@@ -2,15 +2,15 @@ import { question } from "readline-sync";
 
 function main(): void {
   const wordInput: string = question("Enter a string:\n");
-  const charCount = characterCount(wordInput);
+  const charCount: number = characterCount(wordInput);
   const charCountString: string = question(
     `This string contains ${charCount} characters.`
   );
-  const totalWords = wordCount(wordInput);
+  const totalWords: number = wordCount(wordInput);
   const wordCountString: string = question(
     `This string contains ${totalWords} words.`
   );
-  const lettersObj = letterCount(wordInput);
+  const lettersObj: string = letterCount(wordInput);
   const letterCountString: string = question(`Letter Count: ${lettersObj}.`);
 
   console.log(charCountString, wordCountString, letterCountString);
@@ -37,7 +37,7 @@ function wordCount(str: string): number {
   return count;
 }
 
-function letterCount(str: string) {
+function letterCount(str: string): string {
   let letterCountObj = {};
 
   for (let i = 0; i < str.length; i++) {
