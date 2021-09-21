@@ -41,7 +41,7 @@ function letterCount(str: string): string {
   let letterCountObj = {};
 
   for (let i = 0; i < str.length; i++) {
-    const character = str[i];
+    const character = str[i].toLowerCase();
 
     if (str[i] === " ") {
       continue;
