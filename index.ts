@@ -13,7 +13,15 @@ function main(): void {
   const lettersObj: string = letterCount(wordInput);
   const letterCountString: string = question(`Letter Count: ${lettersObj}.`);
 
-  console.log(charCountString, wordCountString, letterCountString);
+  const palindromeCheck: boolean = isPalindrome(wordInput);
+  const isPalindromeStr: string = question(`is Palindrome: ${palindromeCheck}`);
+
+  console.log(
+    charCountString,
+    wordCountString,
+    letterCountString,
+    isPalindromeStr
+  );
 }
 
 function characterCount(str: string): number {
@@ -51,6 +59,17 @@ function letterCount(str: string): string {
     } else letterCountObj[character] += 1;
   }
   return JSON.stringify(letterCountObj);
+}
+
+function isPalindrome(str: string): boolean {
+  for (let i = 0; i < str.length; i++) {
+    let beginningChar = str[i];
+    let endChar = str[str.length - 1 - i];
+    if (beginningChar !== endChar) {
+      return false;
+    }
+  }
+  return true;
 }
 
 main();

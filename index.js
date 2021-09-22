@@ -9,7 +9,9 @@ function main() {
     var wordCountString = readline_sync_1.question("This string contains " + totalWords + " words.");
     var lettersObj = letterCount(wordInput);
     var letterCountString = readline_sync_1.question("Letter Count: " + lettersObj + ".");
-    console.log(charCountString, wordCountString, letterCountString);
+    var palindromeCheck = isPalindrome(wordInput);
+    var isPalindromeStr = readline_sync_1.question("is Palindrome: " + palindromeCheck);
+    console.log(charCountString, wordCountString, letterCountString, isPalindromeStr);
 }
 function characterCount(str) {
     var count = 0;
@@ -31,7 +33,7 @@ function wordCount(str) {
 function letterCount(str) {
     var letterCountObj = {};
     for (var i = 0; i < str.length; i++) {
-        var character = str[i];
+        var character = str[i].toLowerCase();
         if (str[i] === " ") {
             continue;
         }
@@ -42,5 +44,15 @@ function letterCount(str) {
             letterCountObj[character] += 1;
     }
     return JSON.stringify(letterCountObj);
+}
+function isPalindrome(str) {
+    for (var i = 0; i < str.length; i++) {
+        var beginningChar = str[i];
+        var endChar = str[str.length - 1 - i];
+        if (beginningChar !== endChar) {
+            return false;
+        }
+    }
+    return true;
 }
 main();
